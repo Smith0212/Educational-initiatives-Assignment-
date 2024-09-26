@@ -1,0 +1,40 @@
+Sep 26, 2024 4:24:32 PM com.astronautscheduler.astronautscheduler main
+INFO: Starting Astronaut Scheduler Application
+Sep 26, 2024 4:41:54 PM com.astronautscheduler.astronautscheduler removeTaskInteractive
+WARNING: Task not found
+com.astronautscheduler.TaskNotFoundException: Task not found: Meet 5
+	at com.astronautscheduler.ScheduleManager.lambda$removeTask$1(astronautscheduler.java:75)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.astronautscheduler.ScheduleManager.removeTask(astronautscheduler.java:75)
+	at com.astronautscheduler.astronautscheduler.removeTaskInteractive(astronautscheduler.java:380)
+	at com.astronautscheduler.astronautscheduler.processUserChoice(astronautscheduler.java:308)
+	at com.astronautscheduler.astronautscheduler.main(astronautscheduler.java:250)
+
+Sep 26, 2024 4:57:07 PM com.astronautscheduler.astronautscheduler addTaskInteractive
+WARNING: Schedule conflict
+com.astronautscheduler.ScheduleConflictException: Task conflicts with an existing task.
+	at com.astronautscheduler.ScheduleManager.addTask(astronautscheduler.java:63)
+	at com.astronautscheduler.astronautscheduler.addTaskInteractive(astronautscheduler.java:363)
+	at com.astronautscheduler.astronautscheduler.processUserChoice(astronautscheduler.java:306)
+	at com.astronautscheduler.astronautscheduler.main(astronautscheduler.java:250)
+
+Sep 26, 2024 5:03:30 PM com.astronautscheduler.astronautscheduler main
+INFO: Starting Astronaut Scheduler Application
+Sep 26, 2024 5:07:12 PM com.astronautscheduler.astronautscheduler removeTaskInteractive
+WARNING: Task not found
+com.astronautscheduler.TaskNotFoundException: Task not found: Meet 
+	at com.astronautscheduler.ScheduleManager.lambda$removeTask$1(astronautscheduler.java:75)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.astronautscheduler.ScheduleManager.removeTask(astronautscheduler.java:75)
+	at com.astronautscheduler.astronautscheduler.removeTaskInteractive(astronautscheduler.java:380)
+	at com.astronautscheduler.astronautscheduler.processUserChoice(astronautscheduler.java:308)
+	at com.astronautscheduler.astronautscheduler.main(astronautscheduler.java:250)
+
+Sep 26, 2024 5:12:32 PM com.astronautscheduler.astronautscheduler addTaskInteractive
+WARNING: Schedule conflict
+com.astronautscheduler.ScheduleConflictException: Task conflicts with an existing task.
+	at com.astronautscheduler.ScheduleManager.addTask(astronautscheduler.java:63)
+	at com.astronautscheduler.astronautscheduler.addTaskInteractive(astronautscheduler.java:363)
+	at com.astronautscheduler.astronautscheduler.processUserChoice(astronautscheduler.java:306)
+	at com.astronautscheduler.astronautscheduler.main(astronautscheduler.java:250)
+

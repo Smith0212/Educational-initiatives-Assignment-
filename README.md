@@ -26,33 +26,56 @@ The Astronaut Daily Schedule Organizer is a console-based application designed t
 ## Setup and Installation
 
 - Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/Smith0212/Educational-initiatives-Assignment-
    ```
 
 ## Usage
 
-[Provide instructions on how to run the application, e.g.:]
-
 Run the main application file:
-```
+```bash
 cd ".\New folder"
 ```
-```
+```bash
 javac com/astronautscheduler/astronautscheduler.java
 ```
-```
-java com.astronautscheduler.astronautscheduler  
+```bash
+java com.astronautscheduler.astronautscheduler
 ```
 
+## Screenshots
+
+### Add Task
+![Add Task Screenshot](assets/image1.png)
+
+### View All Tasks
+![View All Tasks Screenshot](assets/image2.png)
+
+### Remove Task
+![Remove Task Screenshot1](assets/image31.png)
+![Remove Task Screenshot2](assets/image32.png)
+
+### Task Conflict Error Handling
+![Conflict Handling Screenshot](assets/image4.png)
+
+### Edit Task
+![Edit Task Screenshot1](assets/image51.png)
+![Edit Task Screenshot2](assets/image52.png)
+
+### Mark Task as Completed
+![Mark Task Completed Screenshot](assets/image6.png)
+
+### View Tasks by Priority
+![View Tasks by Priority Screenshot](assets/image7.png)
 
 ## Error Handling
 
 The application includes robust error handling to manage:
 - Task conflicts
-- Invalid time formats
 - Non-existent task operations
 
 ## Logging
 
 A logging mechanism is implemented to track application usage and errors.
+```
+

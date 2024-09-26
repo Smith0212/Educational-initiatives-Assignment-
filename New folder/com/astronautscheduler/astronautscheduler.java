@@ -1,11 +1,16 @@
 package com.astronautscheduler;
 
 import com.astronautscheduler.Observer;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import java.util.stream.Collectors;
 
 // ANSI color codes for console output
@@ -22,7 +27,6 @@ class ConsoleColors {
 
 // Singleton ScheduleManager
 class ScheduleManager {
-
     private static ScheduleManager instance;
     private final List<Task> tasks;
     private static final Logger LOGGER = Logger.getLogger(ScheduleManager.class.getName());
@@ -231,12 +235,12 @@ class UserNotification implements Observer {
 
 // Main application class
 public class astronautscheduler {
-
     private static final Logger LOGGER = Logger.getLogger(astronautscheduler.class.getName());
     private static final ScheduleManager scheduleManager = ScheduleManager.getInstance();
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        setupLogger();
         LOGGER.info("Starting Astronaut Scheduler Application");
         scheduleManager.addObserver(new UserNotification());
 
@@ -244,6 +248,35 @@ public class astronautscheduler {
             displayMenu();
             int choice = getUserChoice();
             processUserChoice(choice);
+        }
+    }
+
+    private static void setupLogger() {
+        try {
+            // Create a FileHandler
+            FileHandler fileHandler = new FileHandler("astronaut_scheduler.log", true);
+
+            // Create a SimpleFormatter
+            SimpleFormatter formatter = new SimpleFormatter();
+            fileHandler.setFormatter(formatter);
+
+            // Remove the ConsoleHandler to prevent logging to console
+            Logger rootLogger = Logger.getLogger("");
+            Handler[] handlers = rootLogger.getHandlers();
+            for (Handler handler : handlers) {
+                if (handler instanceof ConsoleHandler) {
+                    rootLogger.removeHandler(handler);
+                }
+            }
+
+            // Add the FileHandler to the logger
+            LOGGER.addHandler(fileHandler);
+
+            // Set the logging level
+            LOGGER.setLevel(Level.INFO);
+        } catch (IOException e) {
+            System.err.println("Error setting up logger: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -331,10 +364,10 @@ public class astronautscheduler {
             System.out.println(ConsoleColors.GREEN + "Task added successfully." + ConsoleColors.RESET);
         } catch (ScheduleConflictException e) {
             System.out.println(ConsoleColors.RED + "Error: " + e.getMessage() + ConsoleColors.RESET);
-            // LOGGER.log(Level.WARNING, "Schedule conflict", e);
+            LOGGER.log(Level.WARNING, "Schedule conflict", e);
         } catch (IllegalArgumentException e) {
             System.out.println(ConsoleColors.RED + "Error: Invalid input format for priority." + ConsoleColors.RESET);
-            // LOGGER.log(Level.WARNING, "Invalid priority input", e);
+            LOGGER.log(Level.WARNING, "Invalid priority input", e);
         }
     }
 
