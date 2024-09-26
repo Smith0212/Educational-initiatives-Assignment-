@@ -77,5 +77,4 @@ The application includes robust error handling to manage:
 ## Logging
 
 A logging mechanism is implemented to track application usage and errors.
-```
 
